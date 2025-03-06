@@ -1,6 +1,7 @@
 from turtle import Screen, Turtle
 from Paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreborad
 import time
 
 screen = Screen()
@@ -11,6 +12,7 @@ screen.title("PING-PING")
 r_paddle = Paddle((350,0))
 l_paddle = Paddle((-350,0))
 ball = Ball()
+scoreboard = Scoreborad()
 
 screen.listen()
 screen.onkey(r_paddle.go_up,"Up")
@@ -36,9 +38,11 @@ while game_is_on:
 
     if ball.xcor() > 380:
         ball.reset_position()
+        scoreboard.l_point()
 
     if ball.xcor() < -380:
         ball.reset_position()
+        scoreboard.r_point()
 
 
 
